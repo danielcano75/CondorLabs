@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Pokemon</string>
+	<string>Pokedex</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,6 +22,16 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FuturaMediumBT.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Italic.ttf</string>
+		<string>Roboto-BoldItalic.ttf</string>
+		<string>Roboto-Light.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -39,16 +49,6 @@
 			</array>
 		</dict>
 	</dict>
-    <key>UIAppFonts</key>
-    <array>
-        <string>FuturaMediumBT.ttf</string>
-        <string>Roboto-Bold.ttf</string>
-        <string>Roboto-Italic.ttf</string>
-        <string>Roboto-BoldItalic.ttf</string>
-        <string>Roboto-Light.ttf</string>
-        <string>Roboto-Medium.ttf</string>
-        <string>Roboto-Regular.ttf</string>
-    </array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

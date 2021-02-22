@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CA5FD2025E3F6C2000FD333 /* CondorLabsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5FD1F25E3F6C2000FD333 /* CondorLabsApp.swift */; };
+		5CA5FD2225E3F6C2000FD333 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5FD2125E3F6C2000FD333 /* ContentView.swift */; };
+		5CA5FD2425E3F6C3000FD333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA5FD2325E3F6C3000FD333 /* Assets.xcassets */; };
+		5CA5FD2725E3F6C3000FD333 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA5FD2625E3F6C3000FD333 /* Preview Assets.xcassets */; };
+		5CA5FD3225E3F6C3000FD333 /* CondorLabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5FD3125E3F6C3000FD333 /* CondorLabsTests.swift */; };
+		5CA5FD3D25E3F6C3000FD333 /* CondorLabsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5FD3C25E3F6C3000FD333 /* CondorLabsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CA5FD2E25E3F6C3000FD333 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CA5FD1425E3F6C2000FD333 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CA5FD1B25E3F6C2000FD333;
+			remoteInfo = CondorLabs;
+		};
+		5CA5FD3925E3F6C3000FD333 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CA5FD1425E3F6C2000FD333 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CA5FD1B25E3F6C2000FD333;
+			remoteInfo = CondorLabs;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5CA5FD1C25E3F6C2000FD333 /* CondorLabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CondorLabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CA5FD1F25E3F6C2000FD333 /* CondorLabsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorLabsApp.swift; sourceTree = "<group>"; };
+		5CA5FD2125E3F6C2000FD333 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5CA5FD2325E3F6C3000FD333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CA5FD2625E3F6C3000FD333 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5CA5FD2825E3F6C3000FD333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CA5FD2D25E3F6C3000FD333 /* CondorLabsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorLabsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CA5FD3125E3F6C3000FD333 /* CondorLabsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorLabsTests.swift; sourceTree = "<group>"; };
+		5CA5FD3325E3F6C3000FD333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CA5FD3825E3F6C3000FD333 /* CondorLabsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CondorLabsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CA5FD3C25E3F6C3000FD333 /* CondorLabsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondorLabsUITests.swift; sourceTree = "<group>"; };
+		5CA5FD3E25E3F6C3000FD333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CA5FD1925E3F6C2000FD333 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CA5FD2A25E3F6C3000FD333 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CA5FD3525E3F6C3000FD333 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CA5FD1325E3F6C2000FD333 = {
+			isa = PBXGroup;
+			children = (
+				5CA5FD1E25E3F6C2000FD333 /* CondorLabs */,
+				5CA5FD3025E3F6C3000FD333 /* CondorLabsTests */,
+				5CA5FD3B25E3F6C3000FD333 /* CondorLabsUITests */,
+				5CA5FD1D25E3F6C2000FD333 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CA5FD1D25E3F6C2000FD333 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CA5FD1C25E3F6C2000FD333 /* CondorLabs.app */,
+				5CA5FD2D25E3F6C3000FD333 /* CondorLabsTests.xctest */,
+				5CA5FD3825E3F6C3000FD333 /* CondorLabsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CA5FD1E25E3F6C2000FD333 /* CondorLabs */ = {
+			isa = PBXGroup;
+			children = (
+				5CA5FD1F25E3F6C2000FD333 /* CondorLabsApp.swift */,
+				5CA5FD2125E3F6C2000FD333 /* ContentView.swift */,
+				5CA5FD2325E3F6C3000FD333 /* Assets.xcassets */,
+				5CA5FD2825E3F6C3000FD333 /* Info.plist */,
+				5CA5FD2525E3F6C3000FD333 /* Preview Content */,
+			);
+			path = CondorLabs;
+			sourceTree = "<group>";
+		};
+		5CA5FD2525E3F6C3000FD333 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5CA5FD2625E3F6C3000FD333 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5CA5FD3025E3F6C3000FD333 /* CondorLabsTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CA5FD3125E3F6C3000FD333 /* CondorLabsTests.swift */,
+				5CA5FD3325E3F6C3000FD333 /* Info.plist */,
+			);
+			path = CondorLabsTests;
+			sourceTree = "<group>";
+		};
+		5CA5FD3B25E3F6C3000FD333 /* CondorLabsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5CA5FD3C25E3F6C3000FD333 /* CondorLabsUITests.swift */,
+				5CA5FD3E25E3F6C3000FD333 /* Info.plist */,
+			);
+			path = CondorLabsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CA5FD1B25E3F6C2000FD333 /* CondorLabs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CA5FD4125E3F6C3000FD333 /* Build configuration list for PBXNativeTarget "CondorLabs" */;
+			buildPhases = (
+				5CA5FD1825E3F6C2000FD333 /* Sources */,
+				5CA5FD1925E3F6C2000FD333 /* Frameworks */,
+				5CA5FD1A25E3F6C2000FD333 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CondorLabs;
+			productName = CondorLabs;
+			productReference = 5CA5FD1C25E3F6C2000FD333 /* CondorLabs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5CA5FD2C25E3F6C3000FD333 /* CondorLabsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CA5FD4425E3F6C3000FD333 /* Build configuration list for PBXNativeTarget "CondorLabsTests" */;
+			buildPhases = (
+				5CA5FD2925E3F6C3000FD333 /* Sources */,
+				5CA5FD2A25E3F6C3000FD333 /* Frameworks */,
+				5CA5FD2B25E3F6C3000FD333 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CA5FD2F25E3F6C3000FD333 /* PBXTargetDependency */,
+			);
+			name = CondorLabsTests;
+			productName = CondorLabsTests;
+			productReference = 5CA5FD2D25E3F6C3000FD333 /* CondorLabsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5CA5FD3725E3F6C3000FD333 /* CondorLabsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CA5FD4725E3F6C3000FD333 /* Build configuration list for PBXNativeTarget "CondorLabsUITests" */;
+			buildPhases = (
+				5CA5FD3425E3F6C3000FD333 /* Sources */,
+				5CA5FD3525E3F6C3000FD333 /* Frameworks */,
+				5CA5FD3625E3F6C3000FD333 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CA5FD3A25E3F6C3000FD333 /* PBXTargetDependency */,
+			);
+			name = CondorLabsUITests;
+			productName = CondorLabsUITests;
+			productReference = 5CA5FD3825E3F6C3000FD333 /* CondorLabsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CA5FD1425E3F6C2000FD333 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					5CA5FD1B25E3F6C2000FD333 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					5CA5FD2C25E3F6C3000FD333 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 5CA5FD1B25E3F6C2000FD333;
+					};
+					5CA5FD3725E3F6C3000FD333 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 5CA5FD1B25E3F6C2000FD333;
+					};
+				};
+			};
+			buildConfigurationList = 5CA5FD1725E3F6C2000FD333 /* Build configuration list for PBXProject "CondorLabs" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CA5FD1325E3F6C2000FD333;
+			productRefGroup = 5CA5FD1D25E3F6C2000FD333 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CA5FD1B25E3F6C2000FD333 /* CondorLabs */,
+				5CA5FD2C25E3F6C3000FD333 /* CondorLabsTests */,
+				5CA5FD3725E3F6C3000FD333 /* CondorLabsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CA5FD1A25E3F6C2000FD333 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA5FD2725E3F6C3000FD333 /* Preview Assets.xcassets in Resources */,
+				5CA5FD2425E3F6C3000FD333 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CA5FD2B25E3F6C3000FD333 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CA5FD3625E3F6C3000FD333 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CA5FD1825E3F6C2000FD333 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA5FD2225E3F6C2000FD333 /* ContentView.swift in Sources */,
+				5CA5FD2025E3F6C2000FD333 /* CondorLabsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CA5FD2925E3F6C3000FD333 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA5FD3225E3F6C3000FD333 /* CondorLabsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CA5FD3425E3F6C3000FD333 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CA5FD3D25E3F6C3000FD333 /* CondorLabsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CA5FD2F25E3F6C3000FD333 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CA5FD1B25E3F6C2000FD333 /* CondorLabs */;
+			targetProxy = 5CA5FD2E25E3F6C3000FD333 /* PBXContainerItemProxy */;
+		};
+		5CA5FD3A25E3F6C3000FD333 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CA5FD1B25E3F6C2000FD333 /* CondorLabs */;
+			targetProxy = 5CA5FD3925E3F6C3000FD333 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5CA5FD3F25E3F6C3000FD333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5CA5FD4025E3F6C3000FD333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CA5FD4225E3F6C3000FD333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CondorLabs/Preview Content\"";
+				DEVELOPMENT_TEAM = 283ED3996U;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CondorLabs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.com.CondorLabs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5CA5FD4325E3F6C3000FD333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CondorLabs/Preview Content\"";
+				DEVELOPMENT_TEAM = 283ED3996U;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CondorLabs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.com.CondorLabs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5CA5FD4525E3F6C3000FD333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 283ED3996U;
+				INFOPLIST_FILE = CondorLabsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.com.CondorLabsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CondorLabs.app/CondorLabs";
+			};
+			name = Debug;
+		};
+		5CA5FD4625E3F6C3000FD333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 283ED3996U;
+				INFOPLIST_FILE = CondorLabsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.com.CondorLabsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CondorLabs.app/CondorLabs";
+			};
+			name = Release;
+		};
+		5CA5FD4825E3F6C3000FD333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 283ED3996U;
+				INFOPLIST_FILE = CondorLabsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.com.CondorLabsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CondorLabs;
+			};
+			name = Debug;
+		};
+		5CA5FD4925E3F6C3000FD333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 283ED3996U;
+				INFOPLIST_FILE = CondorLabsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.com.CondorLabsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CondorLabs;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CA5FD1725E3F6C2000FD333 /* Build configuration list for PBXProject "CondorLabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CA5FD3F25E3F6C3000FD333 /* Debug */,
+				5CA5FD4025E3F6C3000FD333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CA5FD4125E3F6C3000FD333 /* Build configuration list for PBXNativeTarget "CondorLabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CA5FD4225E3F6C3000FD333 /* Debug */,
+				5CA5FD4325E3F6C3000FD333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CA5FD4425E3F6C3000FD333 /* Build configuration list for PBXNativeTarget "CondorLabsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CA5FD4525E3F6C3000FD333 /* Debug */,
+				5CA5FD4625E3F6C3000FD333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CA5FD4725E3F6C3000FD333 /* Build configuration list for PBXNativeTarget "CondorLabsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CA5FD4825E3F6C3000FD333 /* Debug */,
+				5CA5FD4925E3F6C3000FD333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CA5FD1425E3F6C2000FD333 /* Project object */;
+}

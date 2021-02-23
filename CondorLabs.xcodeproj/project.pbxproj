@@ -21,6 +21,13 @@
 		5C638E5E25E55BC70024E63F /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E5D25E55BC70024E63F /* Move.swift */; };
 		5C638E6325E569840024E63F /* PokemonSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E6225E569840024E63F /* PokemonSegment.swift */; };
 		5C638E6925E57B4C0024E63F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E6825E57B4C0024E63F /* Device.swift */; };
+		5C638E7725E5888C0024E63F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5C638E7625E5888C0024E63F /* Realm */; };
+		5C638E7925E5888C0024E63F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C638E7825E5888C0024E63F /* RealmSwift */; };
+		5C638E7F25E589110024E63F /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E7E25E589110024E63F /* VoteView.swift */; };
+		5C638E8825E5893B0024E63F /* PokeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E8725E5893B0024E63F /* PokeCardView.swift */; };
+		5C638E8D25E58C440024E63F /* PokeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E8C25E58C440024E63F /* PokeCardViewModel.swift */; };
+		5C638E9225E58FC40024E63F /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E9125E58FC40024E63F /* VoteViewModel.swift */; };
+		5C638E9825E591920024E63F /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E9725E591920024E63F /* Collection.swift */; };
 		5C922FAA25E436C100CF70E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C922FA925E436C100CF70E2 /* AppDelegate.swift */; };
 		5C922FAC25E436C100CF70E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C922FAB25E436C100CF70E2 /* SceneDelegate.swift */; };
 		5C922FC125E436C200CF70E2 /* CondorLabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C922FC025E436C200CF70E2 /* CondorLabsTests.swift */; };
@@ -84,6 +91,11 @@
 		5C638E5D25E55BC70024E63F /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		5C638E6225E569840024E63F /* PokemonSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSegment.swift; sourceTree = "<group>"; };
 		5C638E6825E57B4C0024E63F /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		5C638E7E25E589110024E63F /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		5C638E8725E5893B0024E63F /* PokeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCardView.swift; sourceTree = "<group>"; };
+		5C638E8C25E58C440024E63F /* PokeCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCardViewModel.swift; sourceTree = "<group>"; };
+		5C638E9125E58FC40024E63F /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewModel.swift; sourceTree = "<group>"; };
+		5C638E9725E591920024E63F /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		5C922FA625E436C100CF70E2 /* CondorLabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CondorLabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C922FA925E436C100CF70E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C922FAB25E436C100CF70E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C638E7925E5888C0024E63F /* RealmSwift in Frameworks */,
+				5C638E7725E5888C0024E63F /* Realm in Frameworks */,
 				5CA0D87F25E4558900C3AB17 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +212,33 @@
 			path = Device;
 			sourceTree = "<group>";
 		};
+		5C638E7D25E589040024E63F /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				5C638E8625E589300024E63F /* Card */,
+				5C638E7E25E589110024E63F /* VoteView.swift */,
+				5C638E9125E58FC40024E63F /* VoteViewModel.swift */,
+			);
+			path = Vote;
+			sourceTree = "<group>";
+		};
+		5C638E8625E589300024E63F /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				5C638E8725E5893B0024E63F /* PokeCardView.swift */,
+				5C638E8C25E58C440024E63F /* PokeCardViewModel.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		5C638E9625E591880024E63F /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				5C638E9725E591920024E63F /* Collection.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
 		5C922F9D25E436C100CF70E2 = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +299,7 @@
 				5CA0D7D425E4379600C3AB17 /* Component */,
 				5CA0D7DA25E4379600C3AB17 /* Generation */,
 				5C638E2725E537760024E63F /* Pokemon */,
+				5C638E7D25E589040024E63F /* Vote */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -316,6 +358,7 @@
 		5CA0D7DF25E4379600C3AB17 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5C638E9625E591880024E63F /* Collection */,
 				5C638E6725E57B440024E63F /* Device */,
 				5C638E4625E553370024E63F /* String */,
 				5CA0D7E025E4379600C3AB17 /* Color */,
@@ -482,6 +525,8 @@
 			name = CondorLabs;
 			packageProductDependencies = (
 				5CA0D87E25E4558900C3AB17 /* SDWebImageSwiftUI */,
+				5C638E7625E5888C0024E63F /* Realm */,
+				5C638E7825E5888C0024E63F /* RealmSwift */,
 			);
 			productName = CondorLabs;
 			productReference = 5C922FA625E436C100CF70E2 /* CondorLabs.app */;
@@ -556,6 +601,7 @@
 			mainGroup = 5C922F9D25E436C100CF70E2;
 			packageReferences = (
 				5CA0D87D25E4558900C3AB17 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				5C638E7525E5888C0024E63F /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 5C922FA725E436C100CF70E2 /* Products */;
 			projectDirPath = "";
@@ -618,6 +664,7 @@
 				5C922FAA25E436C100CF70E2 /* AppDelegate.swift in Sources */,
 				5C922FAC25E436C100CF70E2 /* SceneDelegate.swift in Sources */,
 				5CA0D7E425E4379600C3AB17 /* GenerationView.swift in Sources */,
+				5C638E8825E5893B0024E63F /* PokeCardView.swift in Sources */,
 				5CA0D86425E449F800C3AB17 /* Region.swift in Sources */,
 				5CA0D7E625E4379600C3AB17 /* Constant.swift in Sources */,
 				5CA0D7E325E4379600C3AB17 /* Font.swift in Sources */,
@@ -626,14 +673,18 @@
 				5C638E5925E55B580024E63F /* MoveViewModel.swift in Sources */,
 				5CA0D84E25E4458600C3AB17 /* Generation.swift in Sources */,
 				5C638E3125E53EBD0024E63F /* PokemonDetailViewModel.swift in Sources */,
+				5C638E9825E591920024E63F /* Collection.swift in Sources */,
 				5C638E5E25E55BC70024E63F /* Move.swift in Sources */,
 				5CA0D84225E4421A00C3AB17 /* APIClient.swift in Sources */,
 				5C638E6925E57B4C0024E63F /* Device.swift in Sources */,
 				5C638E2925E537900024E63F /* PokemonDetailView.swift in Sources */,
 				5CA0D83C25E4415F00C3AB17 /* Pokemon.swift in Sources */,
+				5C638E7F25E589110024E63F /* VoteView.swift in Sources */,
+				5C638E9225E58FC40024E63F /* VoteViewModel.swift in Sources */,
 				5CA0D7E525E4379600C3AB17 /* GenerationViewModel.swift in Sources */,
 				5CA0D84925E443E700C3AB17 /* GenerationClient.swift in Sources */,
 				5CA0D7E225E4379600C3AB17 /* NavigationModifier.swift in Sources */,
+				5C638E8D25E58C440024E63F /* PokeCardViewModel.swift in Sources */,
 				5CA0D83525E43A7F00C3AB17 /* NavigationConfigurator.swift in Sources */,
 				5CA0D7E725E4379600C3AB17 /* Color.swift in Sources */,
 				5C638E4225E548550024E63F /* TypeColor.swift in Sources */,
@@ -971,6 +1022,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5C638E7525E5888C0024E63F /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.6.0;
+			};
+		};
 		5CA0D87D25E4558900C3AB17 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -982,6 +1041,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C638E7625E5888C0024E63F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C638E7525E5888C0024E63F /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		5C638E7825E5888C0024E63F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C638E7525E5888C0024E63F /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		5CA0D87E25E4558900C3AB17 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5CA0D87D25E4558900C3AB17 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;

@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct GenerationView: View {
+    private let size: CGFloat = 30
+    
     @ObservedObject var viewModel = GenerationViewModel()
     @State var detail: Bool = false
     @State var pokemon: Pokemon = .init()
     @State var active: Int? = nil
+    @State var vote: Bool = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor.red,
@@ -20,39 +23,59 @@ struct GenerationView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                ZStack {
-                    LazyVStack(pinnedViews: [.sectionHeaders]) {
-                        Section(header: HeaderView(title: $viewModel.name,
-                                                   type: $viewModel.type,
-                                                   types: $viewModel.types)) {
-                            ForEach(.zero..<(viewModel.generation.pokemon.count), id: \.self) { index in
-                                NavigationLink(destination: PokemonDetailView(type: viewModel.type.generation,
-                                                                              id: pokemon.id()),
-                                               tag: viewModel.generation.pokemon[index].id(),
-                                               selection: $active) {
-                                    PokemonView(type: viewModel.type.generation,
-                                                pokemon: viewModel.generation.pokemon[index]) {
-                                        pokemon = viewModel.generation.pokemon[index]
-                                        active = pokemon.id()
+        ZStack {
+            NavigationView {
+                ScrollView {
+                    ZStack {
+                        LazyVStack(pinnedViews: [.sectionHeaders]) {
+                            Section(header: HeaderView(title: $viewModel.name,
+                                                       type: $viewModel.type,
+                                                       types: $viewModel.types)) {
+                                ForEach(.zero..<(viewModel.generation.pokemon.count), id: \.self) { index in
+                                    NavigationLink(destination: PokemonDetailView(type: viewModel.type.generation,
+                                                                                  id: pokemon.id()),
+                                                   tag: viewModel.generation.pokemon[index].id(),
+                                                   selection: $active) {
+                                        PokemonView(type: viewModel.type.generation,
+                                                    pokemon: viewModel.generation.pokemon[index]) {
+                                            pokemon = viewModel.generation.pokemon[index]
+                                            active = pokemon.id()
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+                .disabled(vote)
+                .onAppear {
+                    viewModel.get()
+                }
+                .navigationBarTitle(Text("Pokédex"),
+                                    displayMode: .automatic)
+                .navigationBarItems(trailing:
+                                        Button(action: {
+                                            vote = true
+                                        }) {
+                                            Image("Vote")
+                                                .renderingMode(.original)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: size,
+                                                       height: size)
+                                        }
+                )
+                .background(NavigationConfigurator { nc in
+                    nc.navigationBar.barTintColor = UIColor.cBackground
+                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.cText ?? .white,
+                                                            .font: UIFont(name: DecorationType.regular.rawValue, size: FontSizeType.title.rawValue)!]
+                })
             }
-            .onAppear {
-                viewModel.get()
+            if $vote.wrappedValue {
+                VoteView(vote: $vote,
+                         type: viewModel.type.generation,
+                         pokemons: Array(viewModel.generation.pokemon.choose(10)))
             }
-            .navigationBarTitle(Text("Pokédex"),
-                                displayMode: .automatic)
-            .background(NavigationConfigurator { nc in
-                nc.navigationBar.barTintColor = UIColor.cBackground
-                nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.cText ?? .white,
-                                                        .font: UIFont(name: DecorationType.regular.rawValue, size: FontSizeType.title.rawValue)!]
-            })
         }
     }
 }

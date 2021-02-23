@@ -14,7 +14,7 @@ enum ArtworkBase: String {
     case iv = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/"
 }
 
-struct Pokemon: Codable {
+struct Pokemon: Hashable, Codable {
     var name: String = ""
     var url: String = ""
 }

@@ -201,6 +201,13 @@ struct PokemonMovesView: View {
         .padding(.horizontal)
         .padding(.vertical, vertical)
         if !$selected.entries.wrappedValue.isEmpty {
+            HStack(spacing: padding) {
+                Text("Description:")
+                    .titleFont(decoration: .bold)
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.vertical, vertical)
             LazyVStack {
                 ForEach(.zero..<selected.entries.count, id: \.self) { index in
                     Text(selected.entries[index].effect)

@@ -8,11 +8,11 @@
 import Foundation
 
 struct Generation: Codable, Identifiable {
-    let id: Int
-    let name: String
-    let region: Region
-    let languages: [Language]
-    let pokemon: [Pokemon]
+    var id: Int = .zero
+    var name: String = ""
+    var region: Region = .init()
+    var languages: [Language] = []
+    var pokemon: [Pokemon] = []
     
     enum CodingKeys: String, CodingKey {
         case id

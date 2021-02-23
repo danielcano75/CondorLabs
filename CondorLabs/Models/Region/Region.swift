@@ -8,6 +8,6 @@
 import Foundation
 
 struct Region: Codable {
-    let name: String
-    let url: String
+    let name: String = ""
+    let url: String = ""
 }

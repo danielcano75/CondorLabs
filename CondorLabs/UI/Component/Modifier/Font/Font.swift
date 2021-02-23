@@ -15,10 +15,12 @@ enum DecorationType: String {
     case medium     = "Roboto-Medium"
     case regular    = "Roboto-Regular"
     case futura     = "Futura-Medium"
-    case mulish     = "Mulish"
+    case hollow     = "Pokemon Hollow"
+    case solid      = "Pokemon Solid"
 }
 
 enum FontSizeType: CGFloat {
+    case large      = 48.0
     case bigTitle   = 25.0
     case navTitle   = 24.0
     case title      = 20.0

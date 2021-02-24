@@ -7,7 +7,6 @@
 ![Muestra1](/Samples/IMG_4.PNG)
 ![Muestra1](/Samples/IMG_5.PNG)
 ![Muestra1](/Samples/IMG_6.PNG)
-![Muestra1](/Samples/IMG_6.PNG)
 ![Muestra1](/Samples/IMG_7.PNG)
 ![Muestra1](/Samples/IMG_8.PNG)
 ![Muestra1](/Samples/IMG_9.PNG)

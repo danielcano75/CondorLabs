@@ -20,6 +20,7 @@ struct EmptyStateView: View {
                 .resizable()
                 .scaledToFit()
             Text(title)
+                .multilineTextAlignment(.center)
         }
         .padding(padding)
         .titleFont(decoration: .bold)

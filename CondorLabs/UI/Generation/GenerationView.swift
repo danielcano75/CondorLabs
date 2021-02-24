@@ -28,11 +28,11 @@ struct GenerationView: View {
                 ScrollView {
                     ZStack {
                         VStack {
+                            SearchBar(text: $viewModel.search,
+                                      placeholder: "Search pokemon")
                             if $viewModel.pokemon.wrappedValue.isEmpty {
                                 EmptyStateView(title: "No pokemon found, please try again later")
                             } else {
-                                SearchBar(text: $viewModel.search,
-                                          placeholder: "Search pokemon")
                                 LazyVStack(pinnedViews: [.sectionHeaders]) {
                                     Section(header: HeaderView(title: $viewModel.name,
                                                                type: $viewModel.type,

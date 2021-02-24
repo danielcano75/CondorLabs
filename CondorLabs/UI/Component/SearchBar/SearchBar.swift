@@ -24,6 +24,10 @@ struct SearchBar: UIViewRepresentable {
             text = searchText
         }
         
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.searchTextField.resignFirstResponder()
+        }
+        
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             searchBar.searchTextField.resignFirstResponder()
         }
@@ -39,6 +43,7 @@ struct SearchBar: UIViewRepresentable {
         searchBar.placeholder = placeholder
         searchBar.searchBarStyle = .minimal
         searchBar.autocapitalizationType = .none
+        searchBar.showsCancelButton = true
         return searchBar
     }
 

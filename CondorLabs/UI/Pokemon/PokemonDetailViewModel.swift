@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 class PokemonDetailViewModel: ObservableObject {
+    private var client = PokemonClient.live
     private let database = PokemonDB.shared
     
     @Published var segment: PokemosSegement = .init() {
@@ -43,19 +44,19 @@ class PokemonDetailViewModel: ObservableObject {
 extension PokemonDetailViewModel {
     // MARK: Subscriber implementation
     func get() {
-        cancellation = PokemonClient.request(.pokemon,
-                                             id: id)
+        cancellation = client.pokemon(.pokemon, id)
             .mapError({ (error) -> Error in
-                print(error)
-                self.pokemon = .init()
-                return error
-            })
-            .sink(receiveCompletion: { (_) in
-            }, receiveValue: { pokemon in
-                withAnimation(.easeIn) {
-                    self.pokemon = pokemon
-                }
-            })
+            print(error)
+            self.pokemon = .init()
+            return error
+        })
+        .sink(receiveCompletion: { (_) in
+        }, receiveValue: { pokemon in
+            withAnimation(.easeIn) {
+                self.pokemon = pokemon
+                self.pokemon.moves = Array(self.pokemon.moves.choose(5))
+            }
+        })
     }
     
     func getStatus() {

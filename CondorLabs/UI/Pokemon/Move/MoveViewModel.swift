@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 
 class MoveViewModel: ObservableObject {
+    private var client = PokemonClient.live
+    
     @Published var move: Move = .init()
     var cancellation: AnyCancellable?
     var url: String
@@ -25,7 +27,7 @@ class MoveViewModel: ObservableObject {
 extension MoveViewModel {
     // MARK: Subscriber implementation
     func get(completion: (() -> ())? = nil) {
-        cancellation = PokemonClient.request(url)
+        cancellation = client.moves(url)
             .mapError({ (error) -> Error in
                 print(error)
                 self.move = .init()

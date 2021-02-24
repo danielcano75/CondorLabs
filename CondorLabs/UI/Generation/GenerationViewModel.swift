@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 class GenerationViewModel: ObservableObject {
+    private var client = GenerationClient.live
     private let database = PokemonDB.shared
     
     @Published var search: String = "" {
@@ -58,16 +59,14 @@ class GenerationViewModel: ObservableObject {
 extension GenerationViewModel {
     // MARK: Subscriber implementation
     func get() {
-        cancellation = GenerationClient.request(.generations,
-                                                type: type.generation)
-            .mapError({ (error) -> Error in
+        cancellation = client.generation(.generation, type.generation)
+            .mapError { (error) -> Error in
                 print(error)
                 self.search = ""
                 self.generation = .init()
                 self.pokemon = []
                 return error
-            })
-            .sink { _ in } receiveValue: { generation in
+            }.sink { _ in } receiveValue: { generation in
                 withAnimation(.easeIn) {
                     self.generation = generation
                     self.generation.pokemon.sort {

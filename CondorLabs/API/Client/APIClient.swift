@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 enum APIPath: String {
-    case generations = "/generation"
+    case generation = "/generation"
     case pokemon = "/pokemon"
 }
 

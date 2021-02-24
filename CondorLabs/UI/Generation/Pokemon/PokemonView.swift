@@ -59,8 +59,7 @@ struct PokemonView: View {
 struct PokemonView_Previews: PreviewProvider {
     static var previews: some View {
         PokemonView(type: .i,
-                    pokemon: .init(name: "bulbasaur",
-                                   url: "https://pokeapi.co/api/v2/pokemon-species/1/")) {
+                    pokemon: .mock) {
         }
     }
 }

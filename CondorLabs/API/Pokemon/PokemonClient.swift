@@ -6,37 +6,44 @@
 //
 
 import Foundation
-
 import Combine
 
-enum PokemonClient {
-    static let api = APIClient()
-    static let base = URL(string: Constant.default.Base)!
+struct PokemonClient {
+    var pokemon: (_ path: APIPath, _ id: Int) -> AnyPublisher<PokemonDetail, Error>
+    var moves: (_ path: String) -> AnyPublisher<Move, Error>
 }
 
+// MARK: - LIVE
 extension PokemonClient {
-    static func request(_ path: APIPath,
-                        id: Int) -> AnyPublisher<PokemonDetail, Error> {
-        guard let components = URLComponents(url: base.appendingPathComponent(path.rawValue + "/\(id)"),
+    static var live = PokemonClient { path, id in
+        guard let components = URLComponents(url: Constant.default.Base.appendingPathComponent(path.rawValue + "/\(id)"),
                                              resolvingAgainstBaseURL: true) else {
             fatalError("Couldn't create URLComponents")
         }
         let request = URLRequest(url: components.url!)
-        
-        return api.run(request)
+        return Constant.default.Api.run(request)
             .map(\.value)
             .eraseToAnyPublisher()
-    }
-    
-    static func request(_ path: String) -> AnyPublisher<Move, Error> {
+    } moves: { path in
         guard let components = URLComponents(url: URL(string: path)!,
                                              resolvingAgainstBaseURL: true) else {
             fatalError("Couldn't create URLComponents")
         }
         let request = URLRequest(url: components.url!)
         
-        return api.run(request)
+        return Constant.default.Api.run(request)
             .map(\.value)
             .eraseToAnyPublisher()
     }
 }
+
+#if DEBUG
+// MARK: - MOCK
+extension PokemonClient {
+    static func mock(pokemon: @escaping (_ path: APIPath, _ id: Int) -> AnyPublisher<PokemonDetail, Error> = { _, _ in fatalError() },
+                     moves: @escaping (_ path: String) -> AnyPublisher<Move, Error> = { _ in fatalError() }) -> PokemonClient {
+        .init(pokemon: pokemon,
+              moves: moves)
+    }
+}
+#endif

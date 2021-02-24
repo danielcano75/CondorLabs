@@ -227,7 +227,7 @@ struct PokemonMovesView: View {
         .padding(.horizontal)
         .padding(.vertical, vertical)
         LazyVStack {
-            ForEach(.zero..<viewModel.pokemon.moves.suffix(5).count, id: \.self) { index in
+            ForEach(.zero..<viewModel.pokemon.moves.count, id: \.self) { index in
                 MoveView(url: viewModel.pokemon.moves[index].move.url,
                          isFirst: selected.name.isEmpty && index == .zero,
                          selected: selected.name.isEmpty && index == .zero ? true : selected.name == viewModel.pokemon.moves[index].move.name) { move in

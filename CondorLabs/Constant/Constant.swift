@@ -8,15 +8,13 @@
 import Foundation
 
 // MARK: Base Server Url Development
-fileprivate let defBase       = "https://pokeapi.co/api/v2"
-
-// MARK: End-points
-fileprivate let defGeneration = "/generation"
+fileprivate let defBase = URL(string: "https://pokeapi.co/api/v2")!
+fileprivate let defApi  = APIClient()
 
 struct Constant {
-    let Base        : String
-    let Generation  : String
+    let Base : URL
+    let Api  : APIClient
     
     static let `default` = Constant(Base: defBase,
-                                    Generation: defGeneration)
+                                    Api: defApi)
 }

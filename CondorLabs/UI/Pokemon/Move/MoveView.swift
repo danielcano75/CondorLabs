@@ -49,7 +49,8 @@ struct MoveView: View {
         }
         .textFont(decoration: .regular)
         .padding(.horizontal)
-        .padding(.vertical, vertical)
+        .padding(.bottom, vertical)
+        .padding(.top)
         .background(selected ? Color.cSection.opacity(0.5) : Color.cBackground)
         .overlay(
             RoundedRectangle(cornerRadius: selected ? corner : .zero)

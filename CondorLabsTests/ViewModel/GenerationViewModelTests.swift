@@ -1,14 +1,13 @@
 //
-//  CondorLabsTests.swift
+//  GenerationViewModelTests.swift
 //  CondorLabsTests
 //
-//  Created by Daniel Cano Arbelaez on 22/02/21.
+//  Created by Daniel Cano Arbelaez on 24/02/21.
 //
 
 import XCTest
-@testable import CondorLabs
 
-class CondorLabsTests: XCTestCase {
+class GenerationViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

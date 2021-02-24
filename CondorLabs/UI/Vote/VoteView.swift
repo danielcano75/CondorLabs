@@ -72,6 +72,6 @@ struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
         VoteView(vote: .constant(true),
                  type: .i,
-                 pokemons: [.init()])
+                 pokemons: [.mock()])
     }
 }

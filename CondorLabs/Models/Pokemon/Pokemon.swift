@@ -40,3 +40,18 @@ extension Pokemon {
         }
     }
 }
+
+#if DEBUG
+extension Pokemon {
+    static var mock = Pokemon(name: "bulbasaur",
+                              url: "https://pokeapi.co/api/v2/pokemon-species/1/")
+    static func mock(id: UUID = UUID(),
+                     name: String = "bulbasaur",
+                     url: String = "https://pokeapi.co/api/v2/pokemon-species/1/") -> Pokemon {
+        .init(id: id,
+              name: name,
+              url: url)
+    }
+}
+#endif
+

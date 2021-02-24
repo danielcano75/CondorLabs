@@ -15,6 +15,8 @@ enum SwipeStatus: Int {
 }
 
 class PokeCardViewModel: ObservableObject {
+    private var client = PokemonClient.live
+    
     @Published var pokemon: PokemonDetail = .init()
     var cancellation: AnyCancellable?
     
@@ -32,8 +34,7 @@ class PokeCardViewModel: ObservableObject {
 extension PokeCardViewModel {
     // MARK: Subscriber implementation
     func get() {
-        cancellation = PokemonClient.request(.pokemon,
-                                             id: id)
+        cancellation = client.pokemon(.pokemon, id)
             .mapError({ (error) -> Error in
                 print(error)
                 self.pokemon = .init()

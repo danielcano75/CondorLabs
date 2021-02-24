@@ -25,33 +25,37 @@ struct PokemonDetailView: View {
     var body: some View {
         ZStack {
             Color.cBackground.edgesIgnoringSafeArea(.all)
-            ScrollView {
-                VStack(spacing: padding) {
-                    Picker(selection: $viewModel.segment,
-                           label: Text("Segements"),
-                           content: {
-                            ForEach(viewModel.segments) { segement in
-                                Text(segement.name)
-                                    .tag(segement)
-                            }
-                    })
-                    .padding(.horizontal)
-                    .padding(.vertical, padding)
-                    .pickerStyle(SegmentedPickerStyle())
-                    switch $viewModel.segment.type.wrappedValue {
-                    case .info:
-                        PokemonInfoView(viewModel: viewModel)
-                    case .moves:
-                        PokemonMovesView(viewModel: viewModel,
-                                         selected: $selected)
+            if $viewModel.pokemon.id.wrappedValue == .zero {
+                EmptyStateView(title: "No pokemon found, please try again later")
+            } else {
+                ScrollView {
+                    VStack(spacing: padding) {
+                        Picker(selection: $viewModel.segment,
+                               label: Text("Segements"),
+                               content: {
+                                ForEach(viewModel.segments) { segement in
+                                    Text(segement.name)
+                                        .tag(segement)
+                                }
+                        })
+                        .padding(.horizontal)
+                        .padding(.vertical, padding)
+                        .pickerStyle(SegmentedPickerStyle())
+                        switch $viewModel.segment.type.wrappedValue {
+                        case .info:
+                            PokemonInfoView(viewModel: viewModel)
+                        case .moves:
+                            PokemonMovesView(viewModel: viewModel,
+                                             selected: $selected)
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding(.top)
                 }
-                .padding(.top)
+                .offset(y: hegiht)
+                .padding(.bottom, hegiht)
+                HeaderPokemon(viewModel: viewModel)
             }
-            .offset(y: hegiht)
-            .padding(.bottom, hegiht)
-            HeaderPokemon(viewModel: viewModel)
         }
         .onAppear {
             viewModel.get()

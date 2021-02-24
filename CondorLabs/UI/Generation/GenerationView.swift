@@ -28,21 +28,25 @@ struct GenerationView: View {
                 ScrollView {
                     ZStack {
                         VStack {
-                            SearchBar(text: $viewModel.search,
-                                      placeholder: "Search pokemon")
-                            LazyVStack(pinnedViews: [.sectionHeaders]) {
-                                Section(header: HeaderView(title: $viewModel.name,
-                                                           type: $viewModel.type,
-                                                           types: $viewModel.types)) {
-                                    ForEach(viewModel.pokemon) { pokemon in
-                                        NavigationLink(destination: PokemonDetailView(type: viewModel.type.generation,
-                                                                                      id: pokemon.getId()),
-                                                       tag: pokemon.getId(),
-                                                       selection: $active) {
-                                            PokemonView(type: viewModel.type.generation,
-                                                        pokemon: pokemon) {
-                                                self.pokemon = pokemon
-                                                active = pokemon.getId()
+                            if $viewModel.pokemon.wrappedValue.isEmpty {
+                                EmptyStateView(title: "No pokemon found, please try again later")
+                            } else {
+                                SearchBar(text: $viewModel.search,
+                                          placeholder: "Search pokemon")
+                                LazyVStack(pinnedViews: [.sectionHeaders]) {
+                                    Section(header: HeaderView(title: $viewModel.name,
+                                                               type: $viewModel.type,
+                                                               types: $viewModel.types)) {
+                                        ForEach(viewModel.pokemon) { pokemon in
+                                            NavigationLink(destination: PokemonDetailView(type: viewModel.type.generation,
+                                                                                          id: pokemon.getId()),
+                                                           tag: pokemon.getId(),
+                                                           selection: $active) {
+                                                PokemonView(type: viewModel.type.generation,
+                                                            pokemon: pokemon) {
+                                                    self.pokemon = pokemon
+                                                    active = pokemon.getId()
+                                                }
                                             }
                                         }
                                     }

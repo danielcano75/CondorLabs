@@ -39,100 +39,105 @@ struct PokeCardView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                ZStack(alignment: swipe == .like ? .topLeading : .topTrailing) {
-                    WebImage(url: URL(string: viewModel.pokemon.sprites.other.artwork.artwork))
-                        .onSuccess { image, cache in
-                        }
-                        .renderingMode(.original)
-                        .resizable()
-                        .placeholder(Image("Pokeball"))
-                        .indicator(.activity)
-                        .transition(.fade)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width,
-                               height: geometry.size.height * 0.5)
-                        .clipped()
-                        .padding(.top, padding)
-                    switch $swipe.wrappedValue {
-                    case .like:
-                        Image("BallLike")
+                if $viewModel.pokemon.id.wrappedValue == .zero {
+                    EmptyStateView(title: "No pokemon found, please try again later")
+                } else {
+                    ZStack(alignment: swipe == .like ? .topLeading : .topTrailing) {
+                        WebImage(url: URL(string: viewModel.pokemon.sprites.other.artwork.artwork))
+                            .onSuccess { image, cache in
+                            }
                             .renderingMode(.original)
                             .resizable()
-                            .frame(width: size,
-                                   height: size)
-                            .padding()
-                            .rotationEffect(Angle.degrees(-45))
-                    case .dislike:
-                        Image("BallDislike")
-                            .renderingMode(.template)
-                            .resizable()
-                            .frame(width: size,
-                                   height: size)
-                            .foregroundColor(.cText)
-                            .padding()
-                            .rotationEffect(Angle.degrees(45))
-                    case .none:
-                        EmptyView()
+                            .placeholder(Image("Pokeball"))
+                            .indicator(.activity)
+                            .transition(.fade)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width,
+                                   height: geometry.size.height * 0.5)
+                            .clipped()
+                            .padding(.top, padding)
+                        switch $swipe.wrappedValue {
+                        case .like:
+                            Image("BallLike")
+                                .renderingMode(.original)
+                                .resizable()
+                                .frame(width: size,
+                                       height: size)
+                                .padding()
+                                .rotationEffect(Angle.degrees(-45))
+                        case .dislike:
+                            Image("BallDislike")
+                                .renderingMode(.template)
+                                .resizable()
+                                .frame(width: size,
+                                       height: size)
+                                .foregroundColor(.cText)
+                                .padding()
+                                .rotationEffect(Angle.degrees(45))
+                        case .none:
+                            EmptyView()
+                        }
                     }
-                }
-                VStack(alignment: .leading, spacing: spacing) {
-                    Text(viewModel.pokemon.name.capitalizingFirstLetter())
-                        .font(.title)
-                        .bold()
+                    VStack(alignment: .leading, spacing: spacing) {
+                        Text(viewModel.pokemon.name.capitalizingFirstLetter())
+                            .font(.title)
+                            .bold()
+                        HStack {
+                            ForEach(viewModel.pokemon.types) { type in
+                                Text(type.type.name.capitalizingFirstLetter())
+                                    .titleFont(decoration: .bold)
+                                    .padding(.vertical, vertical)
+                                    .padding(.horizontal, padding)
+                                    .background(type.color())
+                                    .cornerRadius(corner)
+                            }
+                        }
+                        HStack(spacing: padding) {
+                            Text("No.")
+                            Text("\(viewModel.pokemon.pokedexId)")
+                        }
+                    }
+                    .padding(.horizontal, padding)
                     HStack {
-                        ForEach(viewModel.pokemon.types) { type in
-                            Text(type.type.name.capitalizingFirstLetter())
-                                .titleFont(decoration: .bold)
+                        Button(action: {
+                            withAnimation(.linear) {
+                                translation.width = -(geometry.size.width - action)
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                onRemove(.dislike, viewModel.pokemon)
+                            }
+                        }) {
+                            Image(systemName: "xmark.square.fill")
+                                .font(name: DecorationType.regular.rawValue,
+                                      size: action)
                                 .padding(.vertical, vertical)
-                                .padding(.horizontal, padding)
-                                .background(type.color())
-                                .cornerRadius(corner)
                         }
+                        .foregroundColor(.red)
+                        .padding(.leading, size)
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.linear) {
+                                translation.width = geometry.size.width - action
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                onRemove(.like, viewModel.pokemon)
+                            }
+                        }) {
+                            Image(systemName: "checkmark.square.fill")
+                                .font(name: DecorationType.regular.rawValue,
+                                      size: action)
+                                .padding(.vertical, vertical)
+                        }.foregroundColor(.green)
+                        .padding(.trailing, size)
                     }
-                    HStack(spacing: padding) {
-                        Text("No.")
-                        Text("\(viewModel.pokemon.pokedexId)")
-                    }
+                    .frame(width: geometry.size.width)
+                    .padding(.top)
                 }
-                .padding(.horizontal, padding)
-                HStack {
-                    Button(action: {
-                        withAnimation(.linear) {
-                            translation.width = -(geometry.size.width - action)
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                            onRemove(.dislike, viewModel.pokemon)
-                        }
-                    }) {
-                        Image(systemName: "xmark.square.fill")
-                            .font(name: DecorationType.regular.rawValue,
-                                  size: action)
-                            .padding(.vertical, vertical)
-                    }
-                    .foregroundColor(.red)
-                    .padding(.leading, size)
-                    Spacer()
-                    Button(action: {
-                        withAnimation(.linear) {
-                            translation.width = geometry.size.width - action
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                            onRemove(.like, viewModel.pokemon)
-                        }
-                    }) {
-                        Image(systemName: "checkmark.square.fill")
-                            .font(name: DecorationType.regular.rawValue,
-                                  size: action)
-                            .padding(.vertical, vertical)
-                    }.foregroundColor(.green)
-                    .padding(.trailing, size)
-                }
-                .frame(width: geometry.size.width)
-                .padding(.top)
             }
             .onAppear {
                 viewModel.get()
             }
+            .disabled(viewModel.pokemon.id == .zero ? true : false)
             .titleFont(decoration: .bold)
             .padding(.bottom)
             .background(Color.cBackground)

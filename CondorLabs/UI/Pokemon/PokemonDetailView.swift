@@ -18,7 +18,8 @@ struct PokemonDetailView: View {
     
     init(type: GenerationType,
          id: Int) {
-        viewModel = PokemonDetailViewModel(type: type,
+        viewModel = PokemonDetailViewModel(.live,
+                                           type: type,
                                            id: id)
     }
     

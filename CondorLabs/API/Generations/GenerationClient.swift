@@ -30,7 +30,9 @@ extension GenerationClient {
 #if DEBUG
 // MARK: - MOCK
 extension GenerationClient {
-    static func mock(generation: @escaping (_ path: APIPath, _ type: GenerationType) -> AnyPublisher<Generation, Error>) -> GenerationClient {
+    static var mock = GenerationClient { _, _ in Effect<Generation, Error>(value: .mock).eraseToAnyPublisher() }
+    
+    static func mock(generation: @escaping (_ path: APIPath, _ type: GenerationType) -> AnyPublisher<Generation, Error> = { _, _ in fatalError() }) -> GenerationClient {
         .init(generation: generation)
     }
 }

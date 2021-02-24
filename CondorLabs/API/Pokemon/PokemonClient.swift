@@ -40,6 +40,9 @@ extension PokemonClient {
 #if DEBUG
 // MARK: - MOCK
 extension PokemonClient {
+    static var mock = PokemonClient { _, _ in Effect<PokemonDetail, Error>(value: .mock).eraseToAnyPublisher()
+    } moves: { _ in Effect<Move, Error>(value: .mock).eraseToAnyPublisher() }
+    
     static func mock(pokemon: @escaping (_ path: APIPath, _ id: Int) -> AnyPublisher<PokemonDetail, Error> = { _, _ in fatalError() },
                      moves: @escaping (_ path: String) -> AnyPublisher<Move, Error> = { _ in fatalError() }) -> PokemonClient {
         .init(pokemon: pokemon,

@@ -9,8 +9,13 @@ import SwiftUI
 import Combine
 
 class GenerationViewModel: ObservableObject {
-    private var client = GenerationClient.live
     private let database = PokemonDB.shared
+    
+    private var client: GenerationClient
+    
+    init(_ client: GenerationClient) {
+        self.client = client
+    }
     
     @Published var search: String = "" {
         didSet {
@@ -96,3 +101,10 @@ extension GenerationViewModel {
         return Array(pokemon.choose(10))
     }
 }
+
+//MARK: MOCK
+#if DEBUG
+extension GenerationViewModel {
+    static var mock = GenerationViewModel(.mock)
+}
+#endif

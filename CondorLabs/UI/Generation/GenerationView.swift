@@ -10,7 +10,7 @@ import SwiftUI
 struct GenerationView: View {
     private let size: CGFloat = 30
     
-    @ObservedObject var viewModel = GenerationViewModel()
+    @ObservedObject var viewModel = GenerationViewModel(.live)
     @State var detail: Bool = false
     @State var pokemon: Pokemon = .init()
     @State var active: Int? = nil

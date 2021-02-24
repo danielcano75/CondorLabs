@@ -8,6 +8,34 @@
 import Foundation
 import Combine
 
+public struct Effect<Output, Failure: Error>: Publisher {
+    public let upstream: AnyPublisher<Output, Failure>
+    
+    public func receive<S>(subscriber: S) where S: Combine.Subscriber, Failure == S.Failure, Output == S.Input {
+      self.upstream.subscribe(subscriber)
+    }
+    
+    public init<P: Publisher>(_ publisher: P) where P.Output == Output, P.Failure == Failure {
+      self.upstream = publisher.eraseToAnyPublisher()
+    }
+    
+    public init(value: Output) {
+      self.init(Just(value).setFailureType(to: Failure.self))
+    }
+
+    public init(error: Failure) {
+      self.init(Fail(error: error))
+    }
+}
+
+struct ErrorMessage: Swift.Error, Equatable {
+    let message: String
+    
+    init(_ message: String) {
+        self.message = message
+    }
+}
+
 enum APIPath: String {
     case generation = "/generation"
     case pokemon = "/pokemon"

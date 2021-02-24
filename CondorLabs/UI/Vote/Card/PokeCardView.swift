@@ -26,7 +26,8 @@ struct PokeCardView: View {
     init(type: GenerationType,
          id: Int,
          onRemove: @escaping (SwipeStatus, PokemonDetail) -> ()) {
-        viewModel = PokeCardViewModel(type: type,
+        viewModel = PokeCardViewModel(.live,
+                                      type: type,
                                       id: id)
         self.onRemove = onRemove
     }

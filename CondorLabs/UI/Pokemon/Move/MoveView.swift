@@ -21,7 +21,8 @@ struct MoveView: View {
          isFirst: Bool,
          selected: Bool,
          select: @escaping (Move) -> ()) {
-        self.viewModel = MoveViewModel(url: url,
+        self.viewModel = MoveViewModel(.live,
+                                       url: url,
                                        isFirst: isFirst)
         self.selected = selected
         self.select = select

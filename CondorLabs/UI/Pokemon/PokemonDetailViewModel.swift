@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 class PokemonDetailViewModel: ObservableObject {
-    private var client = PokemonClient.live
     private let database = PokemonDB.shared
     
     @Published var segment: PokemosSegement = .init() {
@@ -29,22 +28,24 @@ class PokemonDetailViewModel: ObservableObject {
     @Published var status: SwipeStatus = .none
     var cancellation: AnyCancellable?
     
+    private var client: PokemonClient
     var type: GenerationType
     var id: Int
     
-    init(type: GenerationType,
+    init(_ client: PokemonClient,
+         type: GenerationType,
          id: Int) {
+        self.client = client
         self.type = type
         self.id = id
         get()
-        getStatus()
     }
 }
 
 extension PokemonDetailViewModel {
     // MARK: Subscriber implementation
     func get() {
-        cancellation = client.pokemon(.pokemon, id)
+        cancellation = client.pokemon(APIPath.pokemon, id)
             .mapError({ (error) -> Error in
             print(error)
             self.pokemon = .init()
@@ -82,3 +83,12 @@ extension PokemonDetailViewModel {
         }
     }
 }
+
+//MARK: MOCK
+#if DEBUG
+extension PokemonDetailViewModel {
+    static var mock = PokemonDetailViewModel(.mock,
+                                             type: .i,
+                                             id: 1)
+}
+#endif

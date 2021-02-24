@@ -9,15 +9,17 @@ import SwiftUI
 import Combine
 
 class MoveViewModel: ObservableObject {
-    private var client = PokemonClient.live
-    
     @Published var move: Move = .init()
+    
+    private var client: PokemonClient
     var cancellation: AnyCancellable?
     var url: String
     var isFirst: Bool
     
-    init(url: String,
+    init(_ client: PokemonClient,
+         url: String,
          isFirst: Bool) {
+        self.client = client
         self.url = url
         self.isFirst = isFirst
         get()
@@ -44,3 +46,12 @@ extension MoveViewModel {
             })
     }
 }
+
+//MARK: MOCK
+#if DEBUG
+extension MoveViewModel {
+    static var mock = MoveViewModel(.mock,
+                                    url: "https://pokeapi.co/api/v2/move/13/",
+                                    isFirst: true)
+}
+#endif

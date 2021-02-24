@@ -142,7 +142,8 @@ struct PokeCardView: View {
             .padding(.bottom)
             .background(Color.cBackground)
             .cornerRadius(padding)
-            .shadow(radius: shadow)
+            .shadow(color: .cText,
+                    radius: shadow)
             .offset(x: translation.width, y: .zero)
             .rotationEffect(.degrees(Double(translation.width / geometry.size.width) * 25),
                             anchor: .bottom)

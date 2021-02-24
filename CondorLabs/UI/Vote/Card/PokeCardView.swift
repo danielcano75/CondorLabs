@@ -38,97 +38,71 @@ struct PokeCardView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                VStack(alignment: .leading) {
-                    ZStack(alignment: swipe == .like ? .topLeading : .topTrailing) {
-                        WebImage(url: URL(string: viewModel.pokemon.sprites.other.artwork.artwork))
-                            .onSuccess { image, cache in
-                            }
+            VStack(alignment: .leading) {
+                ZStack(alignment: swipe == .like ? .topLeading : .topTrailing) {
+                    WebImage(url: URL(string: viewModel.pokemon.sprites.other.artwork.artwork))
+                        .onSuccess { image, cache in
+                        }
+                        .renderingMode(.original)
+                        .resizable()
+                        .placeholder(Image("Pokeball"))
+                        .indicator(.activity)
+                        .transition(.fade)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width,
+                               height: geometry.size.height * 0.5)
+                        .clipped()
+                        .padding(.top, padding)
+                    switch $swipe.wrappedValue {
+                    case .like:
+                        Image("BallLike")
                             .renderingMode(.original)
                             .resizable()
-                            .placeholder(Image("Pokeball"))
-                            .indicator(.activity)
-                            .transition(.fade)
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: geometry.size.width,
-                                   height: geometry.size.height * 0.5)
-                            .clipped()
-                            .padding(.top, padding)
-                        switch $swipe.wrappedValue {
-                        case .like:
-                            Image("BallLike")
-                                .renderingMode(.original)
-                                .resizable()
-                                .frame(width: size,
-                                       height: size)
-                                .padding()
-                                .rotationEffect(Angle.degrees(-45))
-                        case .dislike:
-                            Image("BallDislike")
-                                .renderingMode(.original)
-                                .resizable()
-                                .frame(width: size,
-                                       height: size)
-                                .padding()
-                                .rotationEffect(Angle.degrees(45))
-                        case .none:
-                            EmptyView()
+                            .frame(width: size,
+                                   height: size)
+                            .padding()
+                            .rotationEffect(Angle.degrees(-45))
+                    case .dislike:
+                        Image("BallDislike")
+                            .renderingMode(.template)
+                            .resizable()
+                            .frame(width: size,
+                                   height: size)
+                            .foregroundColor(.cText)
+                            .padding()
+                            .rotationEffect(Angle.degrees(45))
+                    case .none:
+                        EmptyView()
+                    }
+                }
+                VStack(alignment: .leading, spacing: spacing) {
+                    Text(viewModel.pokemon.name.capitalizingFirstLetter())
+                        .font(.title)
+                        .bold()
+                    HStack {
+                        ForEach(viewModel.pokemon.types) { type in
+                            Text(type.type.name.capitalizingFirstLetter())
+                                .titleFont(decoration: .bold)
+                                .padding(.vertical, vertical)
+                                .padding(.horizontal, padding)
+                                .background(type.color())
+                                .cornerRadius(corner)
                         }
                     }
-                    VStack(alignment: .leading, spacing: spacing) {
-                        Text(viewModel.pokemon.name.capitalizingFirstLetter())
-                            .font(.title)
-                            .bold()
-                        HStack {
-                            ForEach(viewModel.pokemon.types) { type in
-                                Text(type.type.name.capitalizingFirstLetter())
-                                    .titleFont(decoration: .bold)
-                                    .padding(.vertical, vertical)
-                                    .padding(.horizontal, padding)
-                                    .background(type.color())
-                                    .cornerRadius(corner)
-                            }
-                        }
-                        HStack(spacing: padding) {
-                            Text("No.")
-                            Text("\(viewModel.pokemon.pokedexId)")
-                        }
+                    HStack(spacing: padding) {
+                        Text("No.")
+                        Text("\(viewModel.pokemon.pokedexId)")
                     }
-                    .padding(.horizontal, padding)
                 }
-                .onAppear {
-                    viewModel.get()
-                }
-                .titleFont(decoration: .bold)
-                .padding(.bottom)
-                .background(Color.cBackground)
-                .cornerRadius(padding)
-                .shadow(radius: shadow)
-                .offset(x: translation.width, y: .zero)
-                .rotationEffect(.degrees(Double(translation.width / geometry.size.width) * 25),
-                                anchor: .bottom)
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            translation = value.translation
-                            if (getPercentage(geometry, from: value)) >= threshold {
-                                swipe = .like
-                            } else if getPercentage(geometry, from: value) <= -threshold {
-                                swipe = .dislike
-                            } else {
-                                swipe = .none
-                            }
-                        }.onEnded { value in
-                            if abs(getPercentage(geometry, from: value)) > threshold {
-                                onRemove(swipe, viewModel.pokemon)
-                            } else {
-                                translation = .zero
-                            }
-                        }
-                )
-                HStack() {
+                .padding(.horizontal, padding)
+                HStack {
                     Button(action: {
-                        onRemove(.dislike, viewModel.pokemon)
+                        withAnimation(.linear) {
+                            translation.width = -(geometry.size.width - action)
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            onRemove(.dislike, viewModel.pokemon)
+                        }
                     }) {
                         Image(systemName: "xmark.square.fill")
                             .font(name: DecorationType.regular.rawValue,
@@ -139,7 +113,12 @@ struct PokeCardView: View {
                     .padding(.leading, size)
                     Spacer()
                     Button(action: {
-                        onRemove(.like, viewModel.pokemon)
+                        withAnimation(.linear) {
+                            translation.width = geometry.size.width - action
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            onRemove(.like, viewModel.pokemon)
+                        }
                     }) {
                         Image(systemName: "checkmark.square.fill")
                             .font(name: DecorationType.regular.rawValue,
@@ -149,12 +128,40 @@ struct PokeCardView: View {
                     .padding(.trailing, size)
                 }
                 .frame(width: geometry.size.width)
-                .background(Color.cBackground)
-                .cornerRadius(padding)
-                .shadow(radius: shadow)
-                .padding(.top, size)
+                .padding(.top)
             }
-            
+            .onAppear {
+                viewModel.get()
+            }
+            .titleFont(decoration: .bold)
+            .padding(.bottom)
+            .background(Color.cBackground)
+            .cornerRadius(padding)
+            .shadow(radius: shadow)
+            .offset(x: translation.width, y: .zero)
+            .rotationEffect(.degrees(Double(translation.width / geometry.size.width) * 25),
+                            anchor: .bottom)
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        translation = value.translation
+                        if (getPercentage(geometry, from: value)) >= threshold {
+                            swipe = .like
+                        } else if getPercentage(geometry, from: value) <= -threshold {
+                            swipe = .dislike
+                        } else {
+                            swipe = .none
+                        }
+                    }.onEnded { value in
+                        if abs(getPercentage(geometry, from: value)) > threshold {
+                            if swipe != .none {
+                                onRemove(swipe, viewModel.pokemon)
+                            }
+                        } else {
+                            translation = .zero
+                        }
+                    }
+            )
         }
     }
 }

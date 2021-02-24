@@ -14,13 +14,14 @@ enum ArtworkBase: String {
     case iv = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/"
 }
 
-struct Pokemon: Hashable, Codable {
+struct Pokemon: Identifiable, Hashable, Codable {
+    var id: UUID? = UUID()
     var name: String = ""
     var url: String = ""
 }
 
 extension Pokemon {
-    func id() -> Int {
+    func getId() -> Int {
         let id = URL(string: url)?.lastPathComponent ?? "0"
         return Int(id) ?? .zero
     }

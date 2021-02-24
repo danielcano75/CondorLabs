@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C3F067D25E66B3300FE1CEE /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F067C25E66B3300FE1CEE /* RealmConfig.swift */; };
+		5C3F069025E6703E00FE1CEE /* PokemonDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F068F25E6703E00FE1CEE /* PokemonDB.swift */; };
+		5C3F069625E670C700FE1CEE /* PokemonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F069525E670C700FE1CEE /* PokemonEntity.swift */; };
+		5C3F069C25E674CF00FE1CEE /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F069B25E674CF00FE1CEE /* Realm.swift */; };
+		5C3F06B825E68D3200FE1CEE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F06B725E68D3200FE1CEE /* SearchBar.swift */; };
 		5C638E0D25E51BE30024E63F /* Pokemon Hollow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C638E0B25E51BE30024E63F /* Pokemon Hollow.ttf */; };
 		5C638E0E25E51BE30024E63F /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C638E0C25E51BE30024E63F /* Pokemon Solid.ttf */; };
 		5C638E2025E528BC0024E63F /* GenerationSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C638E1F25E528BC0024E63F /* GenerationSegment.swift */; };
@@ -77,6 +82,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C3F067C25E66B3300FE1CEE /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		5C3F068F25E6703E00FE1CEE /* PokemonDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDB.swift; sourceTree = "<group>"; };
+		5C3F069525E670C700FE1CEE /* PokemonEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEntity.swift; sourceTree = "<group>"; };
+		5C3F069B25E674CF00FE1CEE /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		5C3F06B725E68D3200FE1CEE /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		5C638E0B25E51BE30024E63F /* Pokemon Hollow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Hollow.ttf"; sourceTree = "<group>"; };
 		5C638E0C25E51BE30024E63F /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		5C638E1F25E528BC0024E63F /* GenerationSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationSegment.swift; sourceTree = "<group>"; };
@@ -160,6 +170,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C3F067B25E66B1C00FE1CEE /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F067C25E66B3300FE1CEE /* RealmConfig.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		5C3F068D25E6702300FE1CEE /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F069425E670BA00FE1CEE /* Entities */,
+				5C3F068E25E6703100FE1CEE /* Pokemon */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		5C3F068E25E6703100FE1CEE /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F068F25E6703E00FE1CEE /* PokemonDB.swift */,
+			);
+			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		5C3F069425E670BA00FE1CEE /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F069525E670C700FE1CEE /* PokemonEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		5C3F069A25E674C800FE1CEE /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F069B25E674CF00FE1CEE /* Realm.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		5C3F06B625E68D2200FE1CEE /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				5C3F06B725E68D3200FE1CEE /* SearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		5C638E1525E5289A0024E63F /* Segment */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +327,7 @@
 				5CA0D7D325E4379600C3AB17 /* UI */,
 				5CA0D83925E43F4500C3AB17 /* Models */,
 				5CA0D84025E441ED00C3AB17 /* API */,
+				5C3F068D25E6702300FE1CEE /* DB */,
 				5CA0D7EE25E437D000C3AB17 /* Supporting Files */,
 				5C922FA925E436C100CF70E2 /* AppDelegate.swift */,
 				5C922FAB25E436C100CF70E2 /* SceneDelegate.swift */,
@@ -307,6 +367,7 @@
 		5CA0D7D425E4379600C3AB17 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5C3F06B625E68D2200FE1CEE /* SearchBar */,
 				5CA0D7D525E4379600C3AB17 /* Modifier */,
 			);
 			path = Component;
@@ -358,6 +419,7 @@
 		5CA0D7DF25E4379600C3AB17 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				5C3F069A25E674C800FE1CEE /* Realm */,
 				5C638E9625E591880024E63F /* Collection */,
 				5C638E6725E57B440024E63F /* Device */,
 				5C638E4625E553370024E63F /* String */,
@@ -413,6 +475,7 @@
 		5CA0D83225E43A6900C3AB17 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				5C3F067B25E66B1C00FE1CEE /* Realm */,
 				5CA0D83325E43A7500C3AB17 /* Navigation */,
 			);
 			path = Config;
@@ -662,12 +725,15 @@
 				5C638E5425E55B460024E63F /* MoveView.swift in Sources */,
 				5C638E3625E53F4D0024E63F /* PokemonDetail.swift in Sources */,
 				5C922FAA25E436C100CF70E2 /* AppDelegate.swift in Sources */,
+				5C3F067D25E66B3300FE1CEE /* RealmConfig.swift in Sources */,
+				5C3F069025E6703E00FE1CEE /* PokemonDB.swift in Sources */,
 				5C922FAC25E436C100CF70E2 /* SceneDelegate.swift in Sources */,
 				5CA0D7E425E4379600C3AB17 /* GenerationView.swift in Sources */,
 				5C638E8825E5893B0024E63F /* PokeCardView.swift in Sources */,
 				5CA0D86425E449F800C3AB17 /* Region.swift in Sources */,
 				5CA0D7E625E4379600C3AB17 /* Constant.swift in Sources */,
 				5CA0D7E325E4379600C3AB17 /* Font.swift in Sources */,
+				5C3F06B825E68D3200FE1CEE /* SearchBar.swift in Sources */,
 				5C638E3C25E544C30024E63F /* PokemonClient.swift in Sources */,
 				5CA0D85725E447AD00C3AB17 /* Language.swift in Sources */,
 				5C638E5925E55B580024E63F /* MoveViewModel.swift in Sources */,
@@ -685,8 +751,10 @@
 				5CA0D84925E443E700C3AB17 /* GenerationClient.swift in Sources */,
 				5CA0D7E225E4379600C3AB17 /* NavigationModifier.swift in Sources */,
 				5C638E8D25E58C440024E63F /* PokeCardViewModel.swift in Sources */,
+				5C3F069625E670C700FE1CEE /* PokemonEntity.swift in Sources */,
 				5CA0D83525E43A7F00C3AB17 /* NavigationConfigurator.swift in Sources */,
 				5CA0D7E725E4379600C3AB17 /* Color.swift in Sources */,
+				5C3F069C25E674CF00FE1CEE /* Realm.swift in Sources */,
 				5C638E4225E548550024E63F /* TypeColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

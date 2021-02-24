@@ -27,19 +27,23 @@ struct GenerationView: View {
             NavigationView {
                 ScrollView {
                     ZStack {
-                        LazyVStack(pinnedViews: [.sectionHeaders]) {
-                            Section(header: HeaderView(title: $viewModel.name,
-                                                       type: $viewModel.type,
-                                                       types: $viewModel.types)) {
-                                ForEach(.zero..<(viewModel.generation.pokemon.count), id: \.self) { index in
-                                    NavigationLink(destination: PokemonDetailView(type: viewModel.type.generation,
-                                                                                  id: pokemon.id()),
-                                                   tag: viewModel.generation.pokemon[index].id(),
-                                                   selection: $active) {
-                                        PokemonView(type: viewModel.type.generation,
-                                                    pokemon: viewModel.generation.pokemon[index]) {
-                                            pokemon = viewModel.generation.pokemon[index]
-                                            active = pokemon.id()
+                        VStack {
+                            SearchBar(text: $viewModel.search,
+                                      placeholder: "Search pokemon")
+                            LazyVStack(pinnedViews: [.sectionHeaders]) {
+                                Section(header: HeaderView(title: $viewModel.name,
+                                                           type: $viewModel.type,
+                                                           types: $viewModel.types)) {
+                                    ForEach(viewModel.pokemon) { pokemon in
+                                        NavigationLink(destination: PokemonDetailView(type: viewModel.type.generation,
+                                                                                      id: pokemon.getId()),
+                                                       tag: pokemon.getId(),
+                                                       selection: $active) {
+                                            PokemonView(type: viewModel.type.generation,
+                                                        pokemon: pokemon) {
+                                                self.pokemon = pokemon
+                                                active = pokemon.getId()
+                                            }
                                         }
                                     }
                                 }
@@ -49,13 +53,15 @@ struct GenerationView: View {
                 }
                 .disabled(vote)
                 .onAppear {
+                    viewModel.search = ""
+                    active = nil
                     viewModel.get()
                 }
                 .navigationBarTitle(Text("Pokédex"),
                                     displayMode: .automatic)
                 .navigationBarItems(trailing:
                                         Button(action: {
-                                            vote = true
+                                            vote = !viewModel.random().isEmpty
                                         }) {
                                             Image("Vote")
                                                 .renderingMode(.original)
@@ -72,9 +78,11 @@ struct GenerationView: View {
                 })
             }
             if $vote.wrappedValue {
-                VoteView(vote: $vote,
-                         type: viewModel.type.generation,
-                         pokemons: Array(viewModel.generation.pokemon.choose(10)))
+                if !viewModel.random().isEmpty {
+                    VoteView(vote: $vote,
+                             type: viewModel.type.generation,
+                             pokemons: viewModel.random())
+                }
             }
         }
     }
@@ -99,10 +107,10 @@ struct HeaderView: View {
                         Text(generation.name)
                             .tag(generation)
                     }
-            })
-            .padding(.trailing)
-            .padding(.vertical, padding)
-            .pickerStyle(SegmentedPickerStyle())
+                   })
+                .padding(.trailing)
+                .padding(.vertical, padding)
+                .pickerStyle(SegmentedPickerStyle())
         }.background(Color.cSection)
     }
 }

@@ -55,6 +55,7 @@ struct PokemonDetailView: View {
         }
         .onAppear {
             viewModel.get()
+            viewModel.getStatus()
         }
         .titleFont(decoration: .regular)
         .navigationBarTitle(viewModel.pokemon.name.capitalizingFirstLetter(),
@@ -66,6 +67,7 @@ struct HeaderPokemon: View {
     private let vertical: CGFloat = 5
     private let corner: CGFloat = 5
     private let padding: CGFloat = 10
+    private let size: CGFloat = 35
     private let width = UIScreen.main.bounds.width
     private let hegiht = UIScreen.main.bounds.width * 0.6
     
@@ -99,6 +101,37 @@ struct HeaderPokemon: View {
                 .padding(.horizontal)
                 .padding(.vertical, vertical)
                 Spacer()
+            }
+            Spacer()
+        }
+        VStack {
+            HStack {
+                Spacer()
+                if $viewModel.status.wrappedValue != .none {
+                    Button(action: {
+                        viewModel.update()
+                    }) {
+                        switch $viewModel.status.wrappedValue {
+                        case .like:
+                            Image("BallLike")
+                                .renderingMode(.original)
+                                .resizable()
+                                .frame(width: size,
+                                       height: size)
+                                .padding()
+                        case .dislike:
+                            Image("BallDislike")
+                                .renderingMode(.template)
+                                .resizable()
+                                .frame(width: size,
+                                       height: size)
+                                .foregroundColor(.cText)
+                                .padding()
+                        case .none:
+                            EmptyView()
+                        }
+                    }
+                }
             }
             Spacer()
         }

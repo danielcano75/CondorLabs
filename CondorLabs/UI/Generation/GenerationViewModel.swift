@@ -9,6 +9,27 @@ import SwiftUI
 import Combine
 
 class GenerationViewModel: ObservableObject {
+    private let database = PokemonDB.shared
+    
+    @Published var search: String = "" {
+        didSet {
+            if search.isEmpty {
+                pokemon = generation.pokemon.map {
+                    Pokemon(id: UUID(),
+                            name: $0.name,
+                            url: $0.url)
+                }
+            } else {
+                pokemon = generation.pokemon.map {
+                    Pokemon(id: UUID(),
+                            name: $0.name,
+                            url: $0.url)
+                }.filter {
+                    $0.name.lowercased().contains(search.lowercased()) || "\($0.getId())" == search
+                }
+            }
+        }
+    }
     @Published var name: String = ""
     @Published var type: GenerationSegment = .init() {
         didSet {
@@ -30,6 +51,7 @@ class GenerationViewModel: ObservableObject {
                                                                    generation: .iv,
                                                                    name: "IV")]
     @Published var generation: Generation = .init()
+    @Published var pokemon: [Pokemon] = []
     var cancellation: AnyCancellable?
 }
 
@@ -40,14 +62,38 @@ extension GenerationViewModel {
                                                 type: type.generation)
             .mapError({ (error) -> Error in
                 print(error)
+                self.search = ""
                 self.generation = .init()
+                self.pokemon = []
                 return error
             })
             .sink { _ in } receiveValue: { generation in
                 withAnimation(.easeIn) {
                     self.generation = generation
+                    self.generation.pokemon.sort {
+                        $0.getId() < $1.getId()
+                    }
+                    self.pokemon = self.generation.pokemon.map {
+                        Pokemon(id: UUID(),
+                                name: $0.name,
+                                url: $0.url)
+                    }
                     self.name = generation.Name()
                 }
             }
+    }
+    
+    func random() -> [Pokemon] {
+        let entities = Set(database.pokemon().map { $0.id })
+        var models = Set(generation.pokemon.map { $0.getId() })
+        
+        models.subtract(entities)
+        
+        let pokemon = generation.pokemon.filter { pokemon in
+            models.contains { id in
+                pokemon.getId() == id
+            }
+        }
+        return Array(pokemon.choose(10))
     }
 }

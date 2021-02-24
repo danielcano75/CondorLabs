@@ -44,12 +44,13 @@ struct VoteView: View {
                     ZStack {
                         ForEach(.zero..<(viewModel.pokemon.count), id: \.self) { index in
                             PokeCardView(type: viewModel.type,
-                                         id: viewModel.pokemon[index].id()) { status, pokemon in
-                                viewModel.pokemon.removeAll {
-                                    $0.id() == pokemon.id
-                                }
+                                         id: viewModel.pokemon[index].getId()) { status, pokemon in
+                                viewModel.save(pokemon: pokemon,
+                                               status: status)
                                 if viewModel.pokemon.isEmpty {
-                                    vote = false
+                                    withAnimation {
+                                        vote = false
+                                    }
                                 }
                             }
                             .animation(.spring())

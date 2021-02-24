@@ -31,6 +31,16 @@ struct PokemonDetail: Codable {
     }
 }
 
+extension PokemonDetail {
+    func toEntity(by status: SwipeStatus) -> PokemonEntity {
+        let pokemon = PokemonEntity()
+        pokemon.id = id
+        pokemon.name = name
+        pokemon.status = status.rawValue
+        return pokemon
+    }
+}
+
 struct Ability: Codable {
     var ability: Detail = .init()
     
